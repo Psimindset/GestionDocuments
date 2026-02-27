@@ -240,4 +240,4 @@ def signer():
     return jsonify({'message': 'Signature apposée', 'chemin': chemin_signe}), 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5600, debug=False, use_reloader=False)
+    app.run(host='0.0.0.0', port=5800, debug=False, use_reloader=False)

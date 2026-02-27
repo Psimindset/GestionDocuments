@@ -90,4 +90,4 @@ def inserer_signature():
 
 if __name__ == '__main__':
     creer_tables()
-    app.run(host='0.0.0.0', port=5800, debug=False, use_reloader=False)
+    app.run(host='0.0.0.0', port=5600, debug=False, use_reloader=False)
