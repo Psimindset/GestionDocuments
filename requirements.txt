@@ -1,0 +1,9 @@
+flask
+flask-jwt-extended
+requests
+python-docx
+python-pptx
+reportlab
+PyPDF2
+Pillow
+gunicorn
