@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connexion</title>
+  <style>
+    body  { font-family: Arial; max-width: 400px; margin: 80px auto; }
+    input { display: block; width: 100%; margin: 8px 0; padding: 8px; }
+    .btn  { background: #2c7be5; color: white; border: none;
+            padding: 10px; cursor: pointer; width: 100%; }
+    .err  { color: red; }
+  </style>
+</head>
+<body>
+  <h2>Gestion de Documents — Connexion</h2>
+  {% if erreur %}
+    <p class="err">{{ erreur }}</p>
+  {% endif %}
+  <form method="POST" action="/">
+    <label>Utilisateur</label>
+    <input type="text" name="username" placeholder="admin">
+    <label>Mot de passe</label>
+    <input type="password" name="password" placeholder="admin123">
+    <input class="btn" type="submit" value="Se connecter">
+  </form>
+</body>
+</html>
