@@ -15,8 +15,6 @@
                  font-size: 14px; width: 100%; margin-top: 6px; }
     .retour { display: block; margin-top: 20px; text-align: center; }
     .separateur { border: none; border-top: 2px dashed #ccc; margin: 28px 0; }
-
-    /* Table fichiers convertis */
     table  { width: 100%; border-collapse: collapse; margin-top: 10px; }
     th     { background: #2c7be5; color: white; padding: 10px; text-align: left; }
     td     { padding: 9px; border-bottom: 1px solid #ddd;
@@ -36,9 +34,7 @@
 </head>
 <body>
   <h2>Convertir un document en PDF</h2>
-
-  <!-- ── Formulaire de conversion ── -->
-  <h3>📂 Sélectionner un fichier à convertir</h3>
+  <h3> Sélectionner un fichier à convertir</h3>
   <form method="POST" action="/upload" enctype="multipart/form-data">
     <label>Sélectionner le fichier</label>
     <input type="file" name="fichier" accept=".docx,.pptx" required>
@@ -53,8 +49,6 @@
   </form>
 
   <hr class="separateur">
-
-  <!-- ── AJOUT : liste des fichiers déjà convertis ── -->
   <h3>📄 Fichiers déjà convertis (outputs/)</h3>
 
   {% if convertis %}

@@ -1,6 +1,4 @@
 import requests
-from mod_modele import Document
-
 
 BASE = 'http://127.0.0.1:5800'
 

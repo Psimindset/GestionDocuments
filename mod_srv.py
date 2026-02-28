@@ -30,7 +30,6 @@ def lister_pdfs():
     return outputs + uploads
 
 #  ROUTES WEB
-
 @app.route('/', methods=['GET', 'POST'])
 def page_login():
     if request.method == 'POST':
@@ -133,7 +132,7 @@ def page_signature():
             return render_template('signature.html',
                                    fichiers=tous_pdfs, erreur=erreur)
 
-        # AJOUT : passer nom, prenom et image à mod_sign
+        # passer nom, prenom et image à mod_sign
         chemin_signe = signer_pdf(chemin, nom, prenom, date_sig, signature_img)
         return render_template('resultat.html',
                                resultat={'message': 'Signature apposée',

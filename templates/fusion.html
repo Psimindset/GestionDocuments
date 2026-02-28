@@ -19,7 +19,6 @@
             border-radius: 4px; color: #721c24; margin-bottom: 12px; }
     .ok   { background: #d4edda; padding: 10px;
             border-radius: 4px; color: #155724; margin-bottom: 12px; }
-    /* CORRECTION : liste de cases à cocher lisible */
     .liste-pdf { background: #f0f4ff; border: 1px solid #c8d8f8;
                  border-radius: 6px; padding: 10px; margin: 10px 0; }
     .liste-pdf label { display: flex; align-items: center; gap: 10px;
@@ -27,7 +26,6 @@
                        cursor: pointer; border-radius: 4px; }
     .liste-pdf label:hover { background: #dce8ff; }
     .liste-pdf input[type=checkbox] { width: 18px; height: 18px; }
-    /* AJOUT : nom du fichier lisible */
     .nom-fichier { font-weight: bold; color: #2c3e50; }
     .chemin      { font-size: 12px; color: #888; }
     .vide  { color: #999; font-style: italic; }
@@ -38,12 +36,9 @@
 </head>
 <body>
   <h2>Fusionner des fichiers PDF</h2>
-
   {% if erreur %}
     <p class="err">❌ {{ erreur }}</p>
   {% endif %}
-
-  <!-- ── AJOUT : upload d'un PDF directement ── -->
   <h3>📤 Uploader un PDF</h3>
   <form method="POST" action="/upload-pdf" enctype="multipart/form-data">
     <input type="file" name="fichier_pdf" accept=".pdf" required
@@ -55,23 +50,18 @@
   {% if upload_ok %}
     <p class="ok">✅ {{ upload_ok }}</p>
   {% endif %}
-
   <hr class="separateur">
-
-  <!-- ── CORRECTION : sélection avec checkboxes lisibles ── -->
   <form method="POST" action="/fusion">
     <h3>📄 Sélectionner les fichiers à fusionner</h3>
     <p style="font-size:13px; color:#555;">
       Cocher au moins 2 fichiers. Ils seront fusionnés dans l'ordre de sélection.
     </p>
-
     {% if fichiers %}
       <div class="liste-pdf">
         {% for f in fichiers %}
           <label>
             <input type="checkbox" name="chemins" value="{{ f.chemin }}">
             <div>
-              <!-- CORRECTION : afficher nom et chemin séparément -->
               <div class="nom-fichier">📄 {{ f.nom }}</div>
               <div class="chemin">{{ f.chemin }}</div>
             </div>
@@ -81,9 +71,7 @@
     {% else %}
       <p class="vide">Aucun PDF disponible. Uploadez d'abord un fichier ci-dessus.</p>
     {% endif %}
-
     <label style="font-weight:bold;">Nom du fichier de sortie</label>
-    <!-- CORRECTION : champ modifiable + extension .pdf fixe et non modifiable -->
     <div style="display:flex; align-items:center; gap:0;">
       <input type="text" name="nom_sortie"
              value="{{ nom_auto }}"
@@ -99,12 +87,10 @@
     <p style="font-size:12px; color:#888; margin-top:0;">
       Le nom est généré automatiquement. Vous pouvez le renommer. L'extension .pdf est fixe.
     </p>
-
     <div class="actions">
       <button class="btn-blue" type="submit">🔗 Fusionner les PDFs sélectionnés</button>
     </div>
   </form>
-
   <a class="retour" href="/accueil">← Retour au menu</a>
 </body>
 </html>

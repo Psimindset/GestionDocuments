@@ -2,13 +2,9 @@ import os
 import PyPDF2
 
 OUTPUT_DIR = 'outputs'
-
-
 def _assurer_dossier():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
-
-
 # Fusion de PDFs
 def fusionner_pdf(chemins: list, nom_sortie: str = 'fusion.pdf') -> str:
 
@@ -36,7 +32,6 @@ def fusionner_pdf(chemins: list, nom_sortie: str = 'fusion.pdf') -> str:
     print(f'PDF fusionné : {chemin_final}')
     return chemin_final
 
-
 # Extraire des pages spécifiques
 def extraire_pages(chemin_pdf: str, pages: list, nom_sortie: str = 'extrait.pdf') -> str:
 
@@ -60,8 +55,6 @@ def extraire_pages(chemin_pdf: str, pages: list, nom_sortie: str = 'extrait.pdf'
 
     print(f'Extraction terminée : {chemin_final}')
     return chemin_final
-
-
 # Test local
 if __name__ == '__main__':
     print('1. Fusionner des PDFs')

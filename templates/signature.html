@@ -17,7 +17,6 @@
             color: #721c24; margin-bottom: 12px; }
     h3    { color: #2c7be5; border-bottom: 2px solid #2c7be5;
             padding-bottom: 4px; margin-top: 24px; }
-    /* Canvas signature */
     .canvas-wrapper { border: 2px solid #2c7be5; border-radius: 6px;
                       background: #fff; margin: 8px 0; position: relative; }
     #canvas-sig     { display: block; cursor: crosshair;
@@ -31,14 +30,12 @@
 </head>
 <body>
   <h2>Signature électronique d'un PDF</h2>
-
   {% if erreur %}
     <p class="err">❌ {{ erreur }}</p>
   {% endif %}
 
   <form method="POST" action="/signature" id="form-sig">
 
-    <!-- Nom et Prénom -->
     <h3>👤 Identité du signataire</h3>
     <div class="nom-fields">
       <div>
@@ -50,11 +47,8 @@
         <input type="text" name="nom" placeholder="Tremblay" required>
       </div>
     </div>
-
     <label>Date de signature</label>
     <input type="date" name="date_signature" required>
-
-    <!-- Fichier à signer -->
     <h3>📄 Fichier PDF à signer</h3>
     {% if fichiers %}
       <select name="chemin" required>
@@ -74,7 +68,6 @@
       <p style="color:#999; font-style:italic;">Aucun PDF disponible.</p>
     {% endif %}
 
-    <!-- Zone de signature graphique -->
     <h3>✍️ Signature graphique</h3>
     <p class="canvas-label">
       Dessinez votre signature dans la zone ci-dessous :
@@ -87,7 +80,6 @@
         🗑 Effacer
       </button>
     </div>
-    <!-- Champ caché qui contiendra l'image base64 de la signature -->
     <input type="hidden" name="signature_img" id="signature_img">
 
     <input class="btn-blue" type="submit"
@@ -95,8 +87,6 @@
   </form>
 
   <a class="retour" href="/accueil">← Retour au menu</a>
-
-  <!-- JS minimal uniquement pour le dessin du canvas -->
   <script>
     const canvas = document.getElementById('canvas-sig');
     const ctx    = canvas.getContext('2d');
@@ -118,8 +108,6 @@
     });
     canvas.addEventListener('mouseup',   () => dessin = false);
     canvas.addEventListener('mouseleave', () => dessin = false);
-
-    // Support tactile (mobile/tablette)
     canvas.addEventListener('touchstart', e => {
       e.preventDefault();
       const r = canvas.getBoundingClientRect();

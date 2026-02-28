@@ -8,7 +8,6 @@
             padding: 16px; border-radius: 4px; }
     .err  { background: #f8d7da; border: 1px solid #f5c6cb;
             padding: 16px; border-radius: 4px; }
-    /* AJOUT : boutons télécharger et visualiser */
     .actions { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
     .btn-dl   { background: #28a745; color: white; padding: 10px 18px;
                 text-decoration: none; border-radius: 4px; font-size: 14px; }
@@ -20,7 +19,6 @@
 </head>
 <body>
   <h2>Résultat de l'opération</h2>
-
   {% if resultat.message %}
     <div class="ok">
       <strong>✅ {{ resultat.message }}</strong>
@@ -30,8 +28,6 @@
         <p>Fichier généré : <code>{{ chemin_fichier }}</code></p>
       {% endif %}
     </div>
-
-    <!-- AJOUT : boutons télécharger et visualiser -->
     {% if chemin_fichier %}
     <div class="actions">
       <a class="btn-dl"

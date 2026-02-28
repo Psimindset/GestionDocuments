@@ -15,7 +15,6 @@
                  padding: 2px 8px; border-radius: 10px; font-size: 12px; }
     .badge-out { background: #d4edda; color: #155724;
                  padding: 2px 8px; border-radius: 10px; font-size: 12px; }
-    /* AJOUT : boutons actions */
     .btn-dl  { background: #28a745; color: white; border: none;
                padding: 5px 12px; border-radius: 4px;
                text-decoration: none; font-size: 13px; margin-right: 4px; }
@@ -27,8 +26,6 @@
 </head>
 <body>
   <h2>Liste des documents</h2>
-
-  <!-- Section uploads/ -->
   <h3>📥 Fichiers uploadés (uploads/)</h3>
   {% set uploads = documents | selectattr('dossier', 'equalto', 'uploads') | list %}
   {% if uploads %}
@@ -41,11 +38,9 @@
         <td>{{ doc.nom }}</td>
         <td><span class="badge-up">uploads</span></td>
         <td>
-          <!-- AJOUT : bouton télécharger -->
           <a class="btn-dl" href="/telecharger/{{ doc.chemin }}">
             ⬇ Télécharger
           </a>
-          <!-- AJOUT : visualiser si PDF -->
           {% if doc.nom.endswith('.pdf') %}
           <a class="btn-view" href="/visualiser/{{ doc.chemin }}" target="_blank">
             👁 Visualiser
@@ -58,8 +53,6 @@
   {% else %}
     <p class="vide">Aucun fichier uploadé.</p>
   {% endif %}
-
-  <!-- Section outputs/ -->
   <h3>📤 Fichiers convertis / signés (outputs/)</h3>
   {% set outputs = documents | selectattr('dossier', 'equalto', 'outputs') | list %}
   {% if outputs %}
@@ -72,11 +65,9 @@
         <td>{{ doc.nom }}</td>
         <td><span class="badge-out">outputs</span></td>
         <td>
-          <!-- AJOUT : bouton télécharger -->
           <a class="btn-dl" href="/telecharger/{{ doc.chemin }}">
             ⬇ Télécharger
           </a>
-          <!-- AJOUT : visualiser si PDF -->
           {% if doc.nom.endswith('.pdf') %}
           <a class="btn-view" href="/visualiser/{{ doc.chemin }}" target="_blank">
             👁 Visualiser
@@ -89,7 +80,6 @@
   {% else %}
     <p class="vide">Aucun fichier converti.</p>
   {% endif %}
-
   <a class="retour" href="/accueil">← Retour au menu</a>
 </body>
 </html>

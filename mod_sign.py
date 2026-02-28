@@ -16,7 +16,6 @@ def _assurer_dossier():
 def _creer_page_signature(nom: str, prenom: str,
                           date_signature: str,
                           signature_img: str = '') -> str:
-
     _assurer_dossier()
     chemin_temp = os.path.join(OUTPUT_DIR, '_signature_temp.pdf')
     c = canvas.Canvas(chemin_temp, pagesize=letter)
@@ -57,8 +56,6 @@ def _creer_page_signature(nom: str, prenom: str,
 
     c.save()
     return chemin_temp
-
-
 # signature sur tous les pages du pdf
 def signer_pdf(chemin_pdf: str, nom: str, prenom: str,
                date_signature: str, signature_img: str = '') -> str:
@@ -86,8 +83,6 @@ def signer_pdf(chemin_pdf: str, nom: str, prenom: str,
     os.remove(chemin_sig)
     print(f'PDF signé : {chemin_signe}')
     return chemin_signe
-
-
 # Test local
 if __name__ == '__main__':
     chemin = input('Chemin du PDF : ')
